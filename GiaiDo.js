@@ -121,6 +121,8 @@ let batDau= document.getElementById("start");
 batDau.onclick= function(){
     myMinus();
     batDau.style.display="none";
+    backgroundMusic.play();
+
 
 }
 //replay
