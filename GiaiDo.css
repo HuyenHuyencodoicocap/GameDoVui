@@ -1,14 +1,39 @@
-#start{
+#start {
     background-color: #4CAF50;
-    color: white; 
+    color: white;
     padding: 10px 10px;
-     text-decoration: none;
+    text-decoration: none;
     font-size: 16px;
-    border-radius: 4px; 
+    border-radius: 4px;
     border: none;
     text-align: right;
 }
-#test{
+
+#test {
     text-align: center;
     margin-top: 10px;
+}
+
+#test :hover {
+    background-color: #7e847e;
+
+}
+
+#rules {
+    transition: opacity 2s ease-out;
+}
+
+#playAgain {
+    display: none;
+    /* Ẩn nút "Chơi lại" ban đầu */
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
 }

@@ -110,6 +110,7 @@ function myMinus() {
         } clock.innerHTML = "Hết giờ !"
         clock.style.color = "red";
         clock.style.fontFamily = "Verdana";
+        replay.style.display="block";
 
     }
 
@@ -122,10 +123,20 @@ batDau.onclick= function(){
     batDau.style.display="none";
 
 }
+//replay
+var replay= document.getElementById("playAgain");
+function replayGame(){
+    location.reload();
+}
+replay.onclick= function(){
+    replayGame();
+    backgroundMusic.play();
 
+}
 
 
 // win
+
 let win = document.getElementById("win");
 function checkWin() {
     let check = true;
@@ -146,15 +157,27 @@ function checkWin() {
         win.innerHTML = "🎉" + "Win";
         win.style.color = "red";
         win.style.fontFamily = "Verdana";
+        replay.style.display="block";
+
 
     }
 
 }
 // an quy tắc sau 5s
 let rules= document.getElementById("rules");
-setTimeout(() => {rules.style.display= "none";
-    
-}, 10000);
+setTimeout(() => {
+    rules.style.opacity = "0";
+    setTimeout(() => {
+        rules.style.display = "none"; 
+    }, 2000);
+
+}, 8000);
+
+// Phát nhạc nền khi trang tải xong
+var backgroundMusic = document.getElementById("backgroundMusic");
+backgroundMusic.play();
+
+
 
 
 
