@@ -98,39 +98,53 @@ let timeId;
 function myMinus() {
     start--;
     if (start > 0) {
-        timeId= setTimeout(() => {
+        timeId = setTimeout(() => {
             myMinus()
         }, 1000);
         clock.innerHTML = "&#9200;" + start + "s";
     } else {
         for (let j = 0; j < 5; j++) {
             for (let i = 0; i < 5; i++) {
-                gameArray[j][i].disabled = true; 
+                gameArray[j][i].disabled = true;
             }
         } clock.innerHTML = "Hết giờ !"
         clock.style.color = "red";
         clock.style.fontFamily = "Verdana";
-        replay.style.display="block";
+        replay.style.display = "block";
 
     }
 
 
 }
+for (let j = 0; j < 5; j++) {
+    for (let i = 0; i < 5; i++) {
+        gameArray[j][i].disabled = true;
+    }
+}
 
-let batDau= document.getElementById("start");
-batDau.onclick= function(){
+let batDau = document.getElementById("start");
+batDau.onclick = function () {
     myMinus();
-    batDau.style.display="none";
+    batDau.style.display = "none";
     backgroundMusic.play();
+    for (let j = 0; j < 5; j++) {
+        for (let i = 0; i < 5; i++) {
+            gameArray[j][i].disabled = false;
+        }
+    }
+    // an quy tắc sau 5s
+let rules = document.getElementById("rules");
+    rules.style.opacity = "0";
+
 
 
 }
 //replay
-var replay= document.getElementById("playAgain");
-function replayGame(){
+var replay = document.getElementById("playAgain");
+function replayGame() {
     location.reload();
 }
-replay.onclick= function(){
+replay.onclick = function () {
     replayGame();
     backgroundMusic.play();
 
@@ -159,21 +173,13 @@ function checkWin() {
         win.innerHTML = "🎉" + "Win";
         win.style.color = "red";
         win.style.fontFamily = "Verdana";
-        replay.style.display="block";
+        replay.style.display = "block";
 
 
     }
 
 }
-// an quy tắc sau 5s
-let rules= document.getElementById("rules");
-setTimeout(() => {
-    rules.style.opacity = "0";
-    setTimeout(() => {
-        rules.style.display = "none"; 
-    }, 2000);
 
-}, 8000);
 
 // Phát nhạc nền khi trang tải xong
 var backgroundMusic = document.getElementById("backgroundMusic");
